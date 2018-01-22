@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CCA.CarLib.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumberOfDoors)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Make)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var car in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => car.NumberOfDoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => car.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => car.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => car.Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => car.Model)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { id=car.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
